@@ -90,4 +90,50 @@ describe("Test Case Bank Manager", () => {
          assert.shouldInvokeXpath(bankManagerPage.selectFieldCustomer, "Please select an item in the list.");
       });
    });
+   describe("Customer", () => {
+      it("[TC0008] See list customer", () => {
+         /* 
+         1. Click button "Customer"
+         */
+         element.clickXpath(bankManagerPage.buttonBankManagerLogin);
+         element.clickXpath(bankManagerPage.buttonCustomerPage);
+      });
+      it("[TC0009] Search customer", () => {
+         /* 
+         1. Click button "Customer"
+         2. Fill field search
+         */
+         element.clickXpath(bankManagerPage.buttonBankManagerLogin);
+         element.clickXpath(bankManagerPage.buttonCustomerPage);
+         element.fillFilledXpath(bankManagerPage.inputSearchCustomer, "Hermoine");
+         assert.shouldContainTextXpath(bankManagerPage.customerFirstName, "Hermoine");
+      });
+      it("[TC0010] Search customer with invalid data", () => {
+         /* 
+         1. Click button "Customer"
+         2. Fill field search with invalid data
+         */
+         element.clickXpath(bankManagerPage.buttonBankManagerLogin);
+         element.clickXpath(bankManagerPage.buttonCustomerPage);
+         element.fillFilledXpath(bankManagerPage.inputSearchCustomer, "invalid");
+         assert.shouldContainTextXpath(bankManagerPage.customerFirstName, "Show no records found");
+      });
+      it("[TC0011] Delete Customer", () => {
+         /* 
+         1. Click button "Customer"
+         2. Choose one data and click delete
+         */
+         element.clickXpath(bankManagerPage.buttonBankManagerLogin);
+         assert.shouldBeVisibleXpath(bankManagerPage.buttonAddCustomerPage);
+         element.clickXpath(bankManagerPage.buttonAddCustomerPage);
+         element.fillFilledXpath(bankManagerPage.inputFirstName, userData.VALID_CUSTOMER.firstName);
+         element.fillFilledXpath(bankManagerPage.inputLastName, userData.VALID_CUSTOMER.lastName);
+         element.fillFilledXpath(bankManagerPage.inputPostalCode, userData.VALID_CUSTOMER.postalCode);
+         element.clickXpath(bankManagerPage.buttonAddCustomer);
+         assert.shouldAlertContains("Customer added successfully with customer id");
+         element.clickXpath(bankManagerPage.buttonCustomerPage);
+         element.fillFilledXpath(bankManagerPage.inputSearchCustomer, userData.VALID_CUSTOMER.firstName);
+         element.clickXpath(`//button[contains(text(),'Delete')]`);
+      });
+   });
 });
