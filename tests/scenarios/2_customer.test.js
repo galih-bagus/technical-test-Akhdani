@@ -12,7 +12,7 @@ beforeEach(() => {
 });
 describe("Test Case Customer", () => {
    describe("Login Customer", () => {
-      it("[TC0002] Login as Customer", () => {
+      it.skip("[TC0002] Login as Customer", () => {
          /* 
         1. Click button "Customer Login"
         2. Choose customer
@@ -23,6 +23,24 @@ describe("Test Case Customer", () => {
          element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
          element.clickXpath(customerPage.buttonCustomerLogin);
          assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+      });
+   });
+   describe("Deposit", () => {
+      it("[TC0021] Can deposit with valid data", () => {
+         /* 
+        1. Click button "Customer Login"
+        2. Choose customer
+        3. Click button "Login"
+         */
+         element.clickXpath(customerPage.buttonCustomerLoginPage);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomerPage);
+         element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
+         element.clickXpath(customerPage.buttonCustomerLogin);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+         element.clickXpath(customerPage.buttonDeposit);
+         element.fillFilledXpath(customerPage.inputAmount, 10000);
+         element.clickXpath(customerPage.buttonDepositAction);
+         assert.shouldContainTextXpath(customerPage.depositMessage, "Deposit Successful");
       });
    });
 });
