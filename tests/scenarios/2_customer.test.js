@@ -37,5 +37,20 @@ describe("Test Case Customer", () => {
          assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
          element.clickXpath(customerPage.buttonTransaction);
       });
+      it("[TC0015] Can filter transaction", () => {
+         /* 
+        1. Click button transaction
+        2. Fill field filter date
+         */
+         element.clickXpath(customerPage.buttonCustomerLoginPage);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomerPage);
+         element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
+         element.clickXpath(customerPage.buttonCustomerLogin);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+         element.clickXpath(customerPage.buttonTransaction);
+         element.fillFilledXpath(customerPage.inputSearchStartDate, userData.SEARCH_DATA_TRANSACTION.startDate);
+         element.fillFilledXpath(customerPage.inputSearchEndDate, userData.SEARCH_DATA_TRANSACTION.endDate);
+         assert.shouldBeVisibleXpath(customerPage.assertionSearchData);
+      });
    });
 });
