@@ -12,7 +12,7 @@ beforeEach(() => {
 });
 describe("Test Case Customer", () => {
    describe("Login Customer", () => {
-      it.skip("[TC0002] Login as Customer", () => {
+      it("[TC0002] Login as Customer", () => {
          /* 
         1. Click button "Customer Login"
         2. Choose customer
@@ -26,7 +26,7 @@ describe("Test Case Customer", () => {
       });
    });
    describe("Transaction", () => {
-      it.skip("[TC0014] Can see list transaction", () => {
+      it("[TC0014] Can see list transaction", () => {
          /* 
         1. Click button transaction
          */
@@ -37,7 +37,7 @@ describe("Test Case Customer", () => {
          assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
          element.clickXpath(customerPage.buttonTransaction);
       });
-      it.skip("[TC0015] Can filter transaction", () => {
+      it("[TC0015] Can filter transaction", () => {
          /* 
         1. Click button transaction
         2. Fill field filter date
