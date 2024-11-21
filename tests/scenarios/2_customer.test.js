@@ -123,4 +123,57 @@ describe("Test Case Customer", () => {
          );
       });
    });
+   describe("Withdrawl", () => {
+      it("[TC0025] Can Withdrawl with valid data", () => {
+         /* 
+         1. Click button Withdrawl
+         2. Fill field Withdrawl with valid data
+         3. Click button "Withdraw"
+         */
+         element.clickXpath(customerPage.buttonCustomerLoginPage);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomerPage);
+         element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
+         element.clickXpath(customerPage.buttonCustomerLogin);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+         element.clickXpath(customerPage.buttonWithdrawl);
+         element.fillFilledXpath(customerPage.inputAmount, 100);
+         element.clickXpath(customerPage.buttonWithdrawlAction);
+         assert.shouldContainTextXpath(customerPage.depositMessage, "Transaction successful");
+      });
+      it("[TC0027] Can Withdrawl with negative number", () => {
+         /* 
+         1. Click button Withdrawl
+         2. Fill field Withdrawl with negative number
+         3. Click button "Withdraw"
+         */
+         element.clickXpath(customerPage.buttonCustomerLoginPage);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomerPage);
+         element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
+         element.clickXpath(customerPage.buttonCustomerLogin);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+         element.clickXpath(customerPage.buttonWithdrawl);
+         element.fillFilledXpath(customerPage.inputAmount, -10000);
+         element.clickXpath(customerPage.buttonWithdrawlAction);
+         assert.shouldContainTextXpath(customerPage.depositMessage, "Transaction Failed, Please input valid amount");
+      });
+      it("[TC0028] Can Withdrawl with amount more than balance", () => {
+         /* 
+         1. Click button Withdrawl
+         2. Fill field Withdrawl with amount more than 1000000000000000000000000000000000000000000
+         3. Click button "Withdraw"
+         */
+         element.clickXpath(customerPage.buttonCustomerLoginPage);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomerPage);
+         element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
+         element.clickXpath(customerPage.buttonCustomerLogin);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+         element.clickXpath(customerPage.buttonWithdrawl);
+         element.fillFilledXpath(customerPage.inputAmount, 1000000000000000000000000000000000000000000);
+         element.clickXpath(customerPage.buttonWithdrawlAction);
+         assert.shouldContainTextXpath(
+            customerPage.depositMessage,
+            "Transaction Failed. You can not withdraw amount more than the balance."
+         );
+      });
+   });
 });
