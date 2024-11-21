@@ -7,3 +7,4 @@ export const buttonTransaction = `//button[contains(text(),'Transactions')]`;
 export const inputSearchStartDate = `//input[@ng-model='startDate']`;
 export const inputSearchEndDate = `//input[@ng-model='end']`;
 export const assertionSearchData = `//tbody//td[contains(text(),'Jan')]`;
+export const buttonReset = `//button[contains(text(),'Reset')]`;
