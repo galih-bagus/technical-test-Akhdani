@@ -176,4 +176,18 @@ describe("Test Case Customer", () => {
          );
       });
    });
+   describe("Logout Customer", () => {
+      it("[TC0029] Logout As Customer", () => {
+         /* 
+        1. Click button Logout
+         */
+         element.clickXpath(customerPage.buttonCustomerLoginPage);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomerPage);
+         element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
+         element.clickXpath(customerPage.buttonCustomerLogin);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+         element.clickXpath(customerPage.buttonCustomerLogout);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomerPage);
+      });
+   });
 });

@@ -15,3 +15,4 @@ export const assertionSearchData = `//tbody//td[contains(text(),'Jan')]`;
 export const buttonReset = `//button[contains(text(),'Reset')]`;
 export const buttonWithdrawl = `//button[contains(text(),'Withdrawl')]`;
 export const buttonWithdrawlAction = `//button[@type='submit' and contains(text(),'Withdraw')]`;
+export const buttonCustomerLogout = `//button[contains(text(),'Logout')]`;
