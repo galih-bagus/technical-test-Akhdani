@@ -7,3 +7,4 @@ export const buttonDeposit = `//button[contains(text(),'Deposit')]`;
 export const inputAmount = `//input[@ng-model='amount']`;
 export const buttonDepositAction = `//button[@type='submit' and contains(text(),'Deposit')]`;
 export const depositMessage = `//span[@ng-show='message']`;
+export const amountBalance = (amount) => `//strong[contains(text(),'${amount}')]`;
