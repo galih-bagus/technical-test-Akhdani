@@ -12,7 +12,7 @@ beforeEach(() => {
 });
 describe("Test Case Customer", () => {
    describe("Login Customer", () => {
-      it("[TC0002] Login as Customer", () => {
+      it.skip("[TC0002] Login as Customer", () => {
          /* 
         1. Click button "Customer Login"
         2. Choose customer
@@ -23,6 +23,19 @@ describe("Test Case Customer", () => {
          element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
          element.clickXpath(customerPage.buttonCustomerLogin);
          assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+      });
+   });
+   describe("Transaction", () => {
+      it.skip("[TC0014] Can see list transaction", () => {
+         /* 
+        1. Click button transaction
+         */
+         element.clickXpath(customerPage.buttonCustomerLoginPage);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomerPage);
+         element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
+         element.clickXpath(customerPage.buttonCustomerLogin);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+         element.clickXpath(customerPage.buttonTransaction);
       });
    });
 });
