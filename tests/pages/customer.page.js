@@ -3,3 +3,7 @@ export const assertionLoginCustomerPage = `//label[contains(text(),'Your Name')]
 export const buttonCustomerLogin = `//button[contains(text(),'Login')]`;
 export const selectCustomerLogin = `//select[@ng-model='custId']`;
 export const assertionLoginCustomer = `//span[contains(text(),'Hermoine')]`;
+export const buttonDeposit = `//button[contains(text(),'Deposit')]`;
+export const inputAmount = `//input[@ng-model='amount']`;
+export const buttonDepositAction = `//button[@type='submit' and contains(text(),'Deposit')]`;
+export const depositMessage = `//span[@ng-show='message']`;
