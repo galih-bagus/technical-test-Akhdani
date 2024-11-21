@@ -25,4 +25,45 @@ describe("Test Case Customer", () => {
          assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
       });
    });
+   describe("Transaction", () => {
+      it("[TC0014] Can see list transaction", () => {
+         /* 
+        1. Click button transaction
+         */
+         element.clickXpath(customerPage.buttonCustomerLoginPage);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomerPage);
+         element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
+         element.clickXpath(customerPage.buttonCustomerLogin);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+         element.clickXpath(customerPage.buttonTransaction);
+      });
+      it("[TC0015] Can filter transaction", () => {
+         /* 
+        1. Click button transaction
+        2. Fill field filter date
+         */
+         element.clickXpath(customerPage.buttonCustomerLoginPage);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomerPage);
+         element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
+         element.clickXpath(customerPage.buttonCustomerLogin);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+         element.clickXpath(customerPage.buttonTransaction);
+         element.fillFilledXpath(customerPage.inputSearchStartDate, userData.SEARCH_DATA_TRANSACTION.startDate);
+         element.fillFilledXpath(customerPage.inputSearchEndDate, userData.SEARCH_DATA_TRANSACTION.endDate);
+         assert.shouldBeVisibleXpath(customerPage.assertionSearchData);
+      });
+      it("[TC0017] Can reset transaction", () => {
+         /* 
+        1. Click button transaction
+        2. Click button "Reset"
+         */
+         element.clickXpath(customerPage.buttonCustomerLoginPage);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomerPage);
+         element.fillSelectXpath(customerPage.selectCustomerLogin, 1);
+         element.clickXpath(customerPage.buttonCustomerLogin);
+         assert.shouldBeVisibleXpath(customerPage.assertionLoginCustomer);
+         element.clickXpath(customerPage.buttonTransaction);
+         element.clickXpath(customerPage.buttonReset);
+      });
+   });
 });

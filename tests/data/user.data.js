@@ -20,3 +20,8 @@ export const DUPLICATE_CUSTOMER = {
    lastName: "Granger",
    postalCode: "E859AB"
 };
+
+export const SEARCH_DATA_TRANSACTION = {
+   startDate: "2015-01-01T00:00",
+   endDate: "2015-01-02T00:00"
+};
